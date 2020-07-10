@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "DevCamper backend api",
   "main": "server.js",
- "scripts": {
+  "scripts": {
     "start": "SET NODE_ENV=production & node server",
     "dev": "nodemon server"
   },
@@ -11,7 +11,8 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
