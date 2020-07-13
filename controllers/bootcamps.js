@@ -7,7 +7,7 @@ const Bootcamp = require("../models/Bootcamp");
 // @route     GET /api/v1/bootcamps
 // @access    Public
 exports.getBootcamps = asyncHandler(async (req, res, next) => {
-	const bootcamps = await Bootcamp.find();
+	const bootcamps = await Bootcamp.find().populate('courses');
 	res.status(200).json({ success: true, count: bootcamps.length, data: bootcamps });
 });
 
@@ -56,12 +56,13 @@ exports.updateBootcamp = asyncHandler(async (req, res, next) => {
 // @route     DELETE /api/v1/bootcamps/:id
 // @access    Private
 exports.deleteBootcamp = asyncHandler(async (req, res, next) => {
-	const bootcamp = await Bootcamp.findByIdAndDelete(req.params.id);
+	const bootcamp = await Bootcamp.findById(req.params.id);
 
 	if (!bootcamp) {
 		return next(new ErrorResponse(`Bootcamp not found with id of ${req.params.id}`, 404));
 	}
 
+	bootcamp.remove()
 	res.status(200).json({ success: true, data: {} });
 });
 
