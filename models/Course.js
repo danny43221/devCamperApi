@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { findByIdAndUpdate } = require("./Bootcamp");
 
 const CourseSchema = new mongoose.Schema({
 	title: {

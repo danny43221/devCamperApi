@@ -15,7 +15,6 @@ connectDB();
 //Route files
 const bootcamps = require("./routes/bootcamps");
 const courses = require("./routes/courses");
-const fileUpload = require("express-fileupload");
 
 const app = express();
 
