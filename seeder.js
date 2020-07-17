@@ -29,7 +29,6 @@ const courses = JSON.parse(
 
 const users = JSON.parse(
   fs.readFileSync(`${__dirname}/_data/users.json`, 'utf-8')
-
 )
 
 
@@ -37,8 +36,9 @@ const users = JSON.parse(
 const importData = async () => {
   try {
     await Bootcamp.create(bootcamps);
-    await Course.create(courses)
+    
     await User.create(users)
+    await Course.create(courses)
     console.log('Data Imported...');
     process.exit();
   } catch (err) {
